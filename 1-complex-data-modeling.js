@@ -110,8 +110,8 @@ let products = [
 // 1- For each product print the variation having minimum
 // Find the variation with the minimum price for each product
 
-// const minimum = products.map(p => p.varations.reduce((acc, curr) => acc.price < curr.price ? acc : curr))
-// console.log(minimum);
+const minimum = products.map(p => p.varations.reduce((acc, curr) => acc.price < curr.price ? acc : curr))
+console.log(minimum);
 
 
 
@@ -124,20 +124,20 @@ let products = [
 // })
 // console.log(minVariation);
 
-// const minVariations = []
-// let minVariation = products.forEach((product) => {
-//   let min = product.varations[0];
-//   product.varations.forEach((varation) => {
-//     // console.log(varation.price);
+const minVariations = []
+let minVariation = products.forEach((product) => {
+  let min = product.varations[0];
+  product.varations.forEach((varation) => {
+    // console.log(varation.price);
     
-//     if(varation.price < min.price) {
-//       min = varation
-//     }
-//   })  
-//   minVariations.push(min)
-// })
+    if(varation.price < min.price) {
+      min = varation
+    }
+  })  
+  minVariations.push(min)
+})
 
-// console.log(minVariations);
+console.log(minVariations);
 
 
 
@@ -182,8 +182,23 @@ console.log(avgRatings);
 // 4- In each product show reviews that need to be moderated (status = false) along with id and title only
 // meanseach product will have id, title and array of unmoderated reviews.
 
+// ---------------------------------------------- More iteration...
+// let unmoderatedReviews = products.map(({id, title, reviews}) => ({
+//   id,
+//   title,
+//   reviews: reviews.filter(({status}) => !status)
+// }))
+// console.log(unmoderatedReviews);
 
-
+// ---------------------------------------------------------- less iteration...
+// let unmoderated = products.map(product => {
+//   return {
+//     id: product.id,
+//     title: product.title,
+//     reviews: product.reviews.filter(review => !review.status)
+//   }
+// })
+// console.log(unmoderated);
 // sample output
 // [
 //   {
